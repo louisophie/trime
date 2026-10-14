@@ -8,7 +8,7 @@
     </td>
     <td align="center" width="33%">
       <img src="002.webp" alt="tongwen-T1D keyboard in Trime"><br>
-      <b>tongwen-T1D in Trime</b>
+      <b>T1D keyboard in Trime</b>
     </td>
     <td align="center" width="33%">
       <img src="003.webp" alt="Schema list"><br>
