@@ -481,3 +481,8 @@ app/src/main/jni/boost/
 # kotlin
 .kotlin
 
+
+# Rime personal data (typing history, device sync)
+rime/*.userdb/
+rime/sync/
+rime/installation.yaml
