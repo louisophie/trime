@@ -47,4 +47,4 @@ By my original MOK's keyboard arrangment, this tongwen-T1D keyboard has more fea
 - ./rime/tongwen-T1D.trime.custom.yaml
 
 ## Usage
-- After cloning and rebuilding, redirect "User directory" to the folder "rime" in Profile option of Trime's setting page.
+- After cloning, rebuilding and apk installing (or do "trime-debug-20261014.apk" installation), redirect "User directory" to the folder "rime" in Profile option of Trime's setting page.
