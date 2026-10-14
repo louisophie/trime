@@ -27,6 +27,7 @@ import com.osfans.trime.daemon.launchOnReady
 import com.osfans.trime.data.db.ClipboardHelper
 import com.osfans.trime.data.prefs.AppPrefs
 import com.osfans.trime.data.theme.KeyActionManager
+import com.osfans.trime.data.theme.LiquidData
 import com.osfans.trime.data.theme.Theme
 import com.osfans.trime.data.theme.ThemeScope
 import com.osfans.trime.ime.bar.ui.AlwaysUi
@@ -35,11 +36,13 @@ import com.osfans.trime.ime.bar.ui.TabUi
 import com.osfans.trime.ime.broadcast.InputBroadcastReceiver
 import com.osfans.trime.ime.candidates.compact.CompactCandidateDelegate
 import com.osfans.trime.ime.candidates.unrolled.window.FlexboxUnrolledCandidateWindow
+import com.osfans.trime.ime.clipboard.SlidePasteDelegate
 import com.osfans.trime.ime.core.TrimeInputMethodService
 import com.osfans.trime.ime.keyboard.CommonKeyboardActionListener
 import com.osfans.trime.ime.keyboard.KeyBehavior
 import com.osfans.trime.ime.keyboard.KeyboardWindow
 import com.osfans.trime.ime.switches.SwitchOptionWindow
+import com.osfans.trime.ime.symbol.LiquidWindow
 import com.osfans.trime.ime.window.BoardWindow
 import com.osfans.trime.ime.window.BoardWindowManager
 import com.osfans.trime.ui.main.ClipEditActivity
@@ -71,6 +74,8 @@ class InputBarDelegate(override val di: DI) :
     private val commonKeyboardActionListener: CommonKeyboardActionListener by instance()
     private val candidate: CompactCandidateDelegate by instance()
     private val rime: RimeSession by instance()
+    private val liquidWindow: LiquidWindow by instance()
+    private val slidePaste: SlidePasteDelegate by instance()
 
     val themedHeight = theme.generalStyle.run { candidateViewHeight + commentHeight }
 
@@ -81,6 +86,8 @@ class InputBarDelegate(override val di: DI) :
     private val clipboardSuggestion by prefs.clipboard.clipboardSuggestion
 
     private val clipboardSuggestionTimeout by prefs.clipboard.clipboardSuggestionTimeout
+
+    private val suggestionBarSwipeDownAction by prefs.keyboard.suggestionBarSwipeDownAction
 
     private var clipboardTimeoutJob: Job? = null
 
@@ -125,14 +132,32 @@ class InputBarDelegate(override val di: DI) :
         alwaysUi.updateState(newState)
     }
 
-    private val swipeDownHideKeyboardCallback: ((KeyBehavior) -> Unit) = { d ->
+    private val swipeDownCallback: ((KeyBehavior) -> Unit) = { d ->
         if (d == KeyBehavior.SWIPE_DOWN) {
+            when (suggestionBarSwipeDownAction) {
+                AppPrefs.Keyboard.SuggestionBarSwipeDownAction.QUICK_PASTE -> {
+                    openQuickPasteTab()
+                }
+
+                else -> {
+                    service.requestHideSelf(0)
+                }
+            }
+        }
+    }
+
+    private fun openQuickPasteTab() {
+        val quickPasteIndex = LiquidData.getTagList().indexOfFirst { it.type == LiquidData.Type.QUICKPASTE }
+        if (quickPasteIndex >= 0) {
+            windowManager.attachWindow(LiquidWindow)
+            liquidWindow.setDataByIndex(quickPasteIndex)
+        } else {
             service.requestHideSelf(0)
         }
     }
 
     private val alwaysUi: AlwaysUi by lazy {
-        AlwaysUi(context, scope) { action ->
+        AlwaysUi(context, scope, slidePaste) { action ->
             if (action.isNotEmpty()) {
                 commonKeyboardActionListener.listener.onAction(KeyActionManager.getAction(action))
             } else {
@@ -141,7 +166,7 @@ class InputBarDelegate(override val di: DI) :
         }.apply {
             hideKeyboardButton.apply {
                 setOnClickListener { service.requestHideSelf(0) }
-                onSwipe = swipeDownHideKeyboardCallback
+                onSwipe = swipeDownCallback
             }
             clipboardUi.suggestionView.apply {
                 setOnClickListener {
@@ -172,7 +197,7 @@ class InputBarDelegate(override val di: DI) :
     private val candidateUi by lazy {
         CandidateUi(context, scope, candidate.view).apply {
             unrollButton.apply {
-                onSwipe = swipeDownHideKeyboardCallback
+                onSwipe = swipeDownCallback
             }
         }
     }

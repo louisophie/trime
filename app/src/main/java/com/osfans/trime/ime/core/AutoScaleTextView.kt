@@ -42,9 +42,24 @@ constructor(
          * scale both in X and Y axis, align center vertically
          */
         Proportional,
+
+        /**
+         * wrap text into multiple lines like a plain TextView (bounded by
+         * maxWidth/maxLines); no scaling. Used by wide, free-form content
+         * where horizontal cramming would hurt readability.
+         */
+        Wrap,
     }
 
     var scaleMode = Mode.None
+        set(value) {
+            field = value
+            // Wrapping is laid out through the stock pipeline; make sure the
+            // text is committed there as well so measurement sees it.
+            if (value == Mode.Wrap && ::text.isInitialized) {
+                super.setText(text, BufferType.NORMAL)
+            }
+        }
 
     private lateinit var text: CharSequence
 
@@ -62,6 +77,11 @@ constructor(
         charSequence: CharSequence?,
         bufferType: BufferType,
     ) {
+        // Wrapped content flows through the stock TextView pipeline so its
+        // StaticLayout handles line breaking; other modes use custom metrics.
+        if (scaleMode == Mode.Wrap) {
+            super.setText(charSequence, bufferType)
+        }
         // setText can be called in super constructor
         if (!::text.isInitialized || charSequence == null || !text.contentEquals(charSequence)) {
             needsMeasureText = true
@@ -78,6 +98,12 @@ constructor(
         widthMeasureSpec: Int,
         heightMeasureSpec: Int,
     ) {
+        if (scaleMode == Mode.Wrap) {
+            // Stock TextView measurement: StaticLayout wraps against the
+            // available width and grows height per line.
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+            return
+        }
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
@@ -185,6 +211,13 @@ constructor(
                     translateX = calculateTranslateX(contentWidth, textWidth, 1.0f, shouldAlignLeft)
                 }
 
+                Mode.Wrap -> {
+                    // Wrap delegates to the stock layout; identity transform.
+                    textScaleX = 1.0f
+                    textScaleY = 1.0f
+                    translateX = 0f
+                }
+
                 Mode.Horizontal -> {
                     textScaleX = contentWidth.toFloat() / textWidth.toFloat()
                     textScaleY = 1.0f
@@ -226,6 +259,11 @@ constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
+        if (scaleMode == Mode.Wrap) {
+            // Plain TextView drawing: wrapped StaticLayout, no scaling.
+            super.onDraw(canvas)
+            return
+        }
         if (needsCalculateTransform) {
             calculateTransform(width, height)
             needsCalculateTransform = false

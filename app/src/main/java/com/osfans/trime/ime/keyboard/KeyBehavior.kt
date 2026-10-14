@@ -20,5 +20,9 @@ enum class KeyBehavior {
     SWIPE_DOWN,
     SWIPE_LEFT,
     SWIPE_RIGHT,
+    SWIPE_LEFT_UP,
+    SWIPE_RIGHT_UP,
+    SWIPE_LEFT_DOWN,
+    SWIPE_RIGHT_DOWN,
     EXTRA,
 }

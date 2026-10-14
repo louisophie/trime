@@ -6,6 +6,7 @@
 
 package com.osfans.trime.data.theme
 
+import com.osfans.trime.data.theme.model.KeyActionToken
 import com.osfans.trime.data.theme.model.TextKeyboard
 import com.osfans.trime.data.theme.model.TextKeyboard.TextKey
 import com.osfans.trime.ime.keyboard.KeyBehavior
@@ -83,6 +84,73 @@ class TextKeyboardTest :
             Then("unset keys keep their sentinel defaults") {
                 key.keyBorder shouldBe -1
                 key.height shouldBe 0f
+            }
+        }
+
+        Given("a key with diagonal swipe actions") {
+            val key =
+                TextKey.decode(
+                    Node.Mapping(
+                        Node.Scalar("click") to Node.Scalar("8"),
+                        Node.Scalar("swipe_up") to Node.Scalar("⁸"),
+                        Node.Scalar("swipe_down") to Node.Scalar("₈"),
+                        Node.Scalar("swipe_left_up") to Node.Scalar("a"),
+                        Node.Scalar("swipe_right_up") to Node.Scalar("b"),
+                        Node.Scalar("swipe_left_down") to Node.Scalar("c"),
+                        Node.Scalar("swipe_right_down") to Node.Scalar("d"),
+                    ),
+                )
+
+            Then("all eight directions decode to plain tokens") {
+                key.behaviors[KeyBehavior.CLICK] shouldNotBe null
+                key.behaviors[KeyBehavior.SWIPE_UP] shouldNotBe null
+                key.behaviors[KeyBehavior.SWIPE_DOWN] shouldNotBe null
+                key.behaviors[KeyBehavior.SWIPE_LEFT_UP] shouldNotBe null
+                key.behaviors[KeyBehavior.SWIPE_RIGHT_UP] shouldNotBe null
+                key.behaviors[KeyBehavior.SWIPE_LEFT_DOWN] shouldNotBe null
+                key.behaviors[KeyBehavior.SWIPE_RIGHT_DOWN] shouldNotBe null
+            }
+        }
+
+        Given("a key with an inline ascii mirror of its click action") {
+            val key =
+                TextKey.decode(
+                    Node.Mapping(
+                        Node.Scalar("click") to Node.Scalar("8"),
+                        Node.Scalar("label") to Node.Scalar("🈷8🕛"),
+                        Node.Scalar("ascii") to
+                            Node.Mapping(
+                                Node.Scalar("text") to Node.Scalar("{8}"),
+                                Node.Scalar("label") to Node.Scalar("🈷8🕛"),
+                            ),
+                    ),
+                )
+
+            Then("the ascii slot keeps both the mirror text and the face label") {
+                key.behaviors[KeyBehavior.ASCII] shouldBe
+                    KeyActionToken.Inline(
+                        KeyActionToken.Inline.Token(
+                            commit = null,
+                            text = "{8}",
+                            label = "🈷8🕛",
+                        ),
+                    )
+            }
+        }
+
+        Given("a key with keep_label set") {
+            val key =
+                TextKey.decode(
+                    Node.Mapping(
+                        Node.Scalar("click") to Node.Scalar("8"),
+                        Node.Scalar("label") to Node.Scalar("🈷8🕛"),
+                        Node.Scalar("keep_label") to Node.Scalar("true"),
+                    ),
+                )
+
+            Then("keepLabel is true while the default stays false") {
+                key.keepLabel shouldBe true
+                TextKey.decode(Node.Mapping()).keepLabel shouldBe false
             }
         }
     })

@@ -19,6 +19,7 @@ import splitties.views.gravityCenter
 class LiquidAdapter(
     private val scope: ThemeScope,
     private val onItemClick: LiquidKeyboard.KeyItem.(Int) -> Unit,
+    private val onItemLongClick: (LiquidKeyboard.KeyItem, Int) -> Unit = { _, _ -> },
 ) : BaseQuickAdapter<LiquidKeyboard.KeyItem, LiquidAdapter.ViewHolder>() {
     inner class ViewHolder(
         val ui: LiquidItemUi,
@@ -50,6 +51,10 @@ class LiquidAdapter(
         holder.ui.mainText.text = item.text
         holder.ui.root.setOnClickListener {
             onItemClick.invoke(item, position)
+        }
+        holder.ui.root.setOnLongClickListener {
+            onItemLongClick(item, position)
+            true
         }
     }
 }

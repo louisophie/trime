@@ -703,13 +703,16 @@ liquid_keyboard:
       - Return2
       - clipboard_window
       - liquid_keyboard_switch
-  keyboards: [emoji, math, ascii, cn, history, symbollist, list, ids, symbol, tabs, pinyin, script_symbols, jp, grease, rusa, korea, lation, yinbiao, unit, yanwenzi, combing, emoji_full]  #tab列表
+  keyboards: [emoji, math, ascii, cn, history, quickpaste, symbollist, list, ids, symbol, tabs, pinyin, script_symbols, jp, grease, rusa, korea, lation, yinbiao, unit, yanwenzi, combing, emoji_full]  #tab列表
   tabs:
     name: 更多
     type: TABS
   history:
     name: 常用
     type: HISTORY
+  quickpaste:
+    name: 快貼
+    type: QUICKPASTE
   emoji:
     type: SINGLE
     keys: "🙂😂🤣😆🙃😅🥺😎👀🙈🙉🙊☹😑😄🤐😨😱🌚🌝🤔❤💔🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
@@ -837,6 +840,10 @@ android_keys:
     swipe_right: 右滑
     swipe_up: 上滑
     swipe_down: 下滑
+    swipe_left_up: 左上滑
+    swipe_right_up: 右上滑
+    swipe_left_down: 左下滑
+    swipe_right_down: 右下滑
   property:
     width: 寬度
     height: 高度

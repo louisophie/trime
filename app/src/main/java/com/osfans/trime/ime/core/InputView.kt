@@ -30,6 +30,7 @@ import com.osfans.trime.ime.broadcast.InputBroadcastReceiver
 import com.osfans.trime.ime.broadcast.InputBroadcaster
 import com.osfans.trime.ime.candidates.compact.CompactCandidateDelegate
 import com.osfans.trime.ime.candidates.popup.PopupCandidatesMode
+import com.osfans.trime.ime.clipboard.SlidePasteDelegate
 import com.osfans.trime.ime.composition.PreeditDelegate
 import com.osfans.trime.ime.keyboard.CommonKeyboardActionListener
 import com.osfans.trime.ime.keyboard.KeyboardPrefs.isLandscapeMode
@@ -49,15 +50,20 @@ import splitties.dimensions.dp
 import splitties.views.dsl.constraintlayout.above
 import splitties.views.dsl.constraintlayout.below
 import splitties.views.dsl.constraintlayout.bottomOfParent
+import splitties.views.dsl.constraintlayout.bottomToBottomOf
 import splitties.views.dsl.constraintlayout.centerHorizontally
 import splitties.views.dsl.constraintlayout.centerInParent
 import splitties.views.dsl.constraintlayout.constraintLayout
 import splitties.views.dsl.constraintlayout.endOfParent
+import splitties.views.dsl.constraintlayout.endToEndOf
 import splitties.views.dsl.constraintlayout.endToStartOf
 import splitties.views.dsl.constraintlayout.lParams
+import splitties.views.dsl.constraintlayout.matchConstraints
 import splitties.views.dsl.constraintlayout.startOfParent
 import splitties.views.dsl.constraintlayout.startToEndOf
+import splitties.views.dsl.constraintlayout.startToStartOf
 import splitties.views.dsl.constraintlayout.topOfParent
+import splitties.views.dsl.constraintlayout.topToTopOf
 import splitties.views.dsl.core.add
 import splitties.views.dsl.core.imageView
 import splitties.views.dsl.core.matchParent
@@ -118,6 +124,7 @@ class InputView(
         bindSingleton { CompactCandidateDelegate(di) }
         bindSingleton { KeyboardWindow(di) }
         bindSingleton { LiquidWindow(di) }
+        bindSingleton { SlidePasteDelegate(di) }
     }
 
     private val broadcaster: InputBroadcaster by instance()
@@ -128,6 +135,7 @@ class InputView(
     private val inputBar: InputBarDelegate by instance()
     private val keyboardWindow: KeyboardWindow by instance()
     private val liquidWindow: LiquidWindow by instance()
+    private val slidePaste: SlidePasteDelegate by instance()
 
     private val candidatesMode by AppPrefs.defaultInstance().candidates.mode
 
@@ -232,6 +240,17 @@ class InputView(
                         startToEndOf(leftPaddingSpace)
                         endToStartOf(rightPaddingSpace)
                         bottomOfParent()
+                    },
+                )
+                // Slide-paste grid: pinned to the board window's own edges (it
+                // has a fixed height), drawn on top of it.
+                add(
+                    slidePaste.view,
+                    lParams(matchConstraints, matchConstraints) {
+                        topToTopOf(windowManager.view)
+                        bottomToBottomOf(windowManager.view)
+                        startToStartOf(windowManager.view)
+                        endToEndOf(windowManager.view)
                     },
                 )
             }

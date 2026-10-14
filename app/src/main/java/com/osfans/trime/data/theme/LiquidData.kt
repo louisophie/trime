@@ -13,9 +13,15 @@ object LiquidData {
         SYMBOL,
         TABS,
         HISTORY,
+        QUICKPASTE,
     }
 
-    data class Tag(val label: String = "", val type: Type)
+    data class Tag(
+        val label: String = "",
+        val type: Type,
+        val stay: Boolean = false,
+        val direct: Boolean = false,
+    )
 
     private val data = arrayListOf<Pair<Tag, Array<LiquidKeyboard.KeyItem>>>()
 
@@ -23,7 +29,7 @@ object LiquidData {
         data.clear()
 
         val transformed = theme.liquidKeyboard.keyboards.map {
-            Tag(it.name, it.type) to
+            Tag(it.name, it.type, it.stay, it.direct) to
                 it.keys.toTypedArray()
         }
         data.addAll(transformed)

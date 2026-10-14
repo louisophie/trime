@@ -23,6 +23,7 @@ import com.osfans.trime.data.theme.KeyActionManager
 import com.osfans.trime.data.theme.LiquidData
 import com.osfans.trime.data.theme.ThemeManager
 import com.osfans.trime.ime.clipboard.ClipboardWindow
+import com.osfans.trime.ime.clipboard.PersonalClipboardWindow
 import com.osfans.trime.ime.core.TrimeInputMethodService
 import com.osfans.trime.ime.dialog.EnabledSchemaPickerDialog
 import com.osfans.trime.ime.switches.SwitchOptionWindow
@@ -191,8 +192,13 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
                     "apply" -> handleApplyCommand(arg)
                     "share_text" -> service.shareText()
                     "select_candidate" -> handleSelectCandidate(arg)
+                    "schema_prev" -> handleSchemaSwitch(-1)
+                    "schema_next" -> handleSchemaSwitch(1)
+                    "schema_select" -> handleSchemaSelect(arg)
                     "switch_hide_key_symbol" -> switchHideKeySymbol()
                     "switch_hide_key_hint" -> switchHideKeyHint()
+                    "quick_paste" -> handleLiquidKeyboard("QUICKPASTE")
+                    "personal_clipboard" -> windowManager.attachWindow(PersonalClipboardWindow(di))
                     else -> handleIntentAction(action.command, arg)
                 }
             }
@@ -295,6 +301,31 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
                 rime.launchOnReady { api ->
                     service.lifecycleScope.launch {
                         api.selectCandidate(index, false)
+                    }
+                }
+            }
+
+            private fun handleSchemaSwitch(direction: Int) {
+                rime.launchOnReady { api ->
+                    val ids = api.selectedSchemata().map { it.id }
+                    nextSchemaId(api.selectedSchemaId(), ids, direction)?.let { target ->
+                        service.lifecycleScope.launch {
+                            api.selectSchema(target)
+                        }
+                    }
+                }
+            }
+
+            private var lastSchemaId = ""
+
+            private fun handleSchemaSelect(arg: String) {
+                rime.launchOnReady { api ->
+                    val current = api.selectedSchemaId()
+                    val target = if (arg == ".last") lastSchemaId else arg
+                    if (target.isEmpty() || target == current) return@launchOnReady
+                    lastSchemaId = current
+                    service.lifecycleScope.launch {
+                        api.selectSchema(target)
                     }
                 }
             }
@@ -458,4 +489,18 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
 
         private val PLACEHOLDER_PATTERN = Regex(".*(%([1-4]\\$)?s).*")
     }
+}
+
+/**
+ * Next schema id in [ids] from [current], stepping [direction] (±1) with
+ * wrap-around. Null when the list is empty; unknown current starts at an end.
+ */
+internal fun nextSchemaId(
+    current: String,
+    ids: List<String>,
+    direction: Int,
+): String? {
+    if (ids.isEmpty()) return null
+    val index = ids.indexOf(current).takeIf { it >= 0 } ?: if (direction >= 0) -1 else 0
+    return ids[(index + direction + ids.size * 2) % ids.size]
 }

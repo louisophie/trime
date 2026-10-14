@@ -274,7 +274,10 @@ class Key(
         label.isNotEmpty() &&
             keyAction == click &&
             !keyActions.containsKey(KeyBehavior.ASCII) &&
-            !rime.run { statusCached }.let { it.isAsciiMode || it.isAsciiPunct } -> label
+            (
+                selfConfig?.keepLabel == true ||
+                    !rime.run { statusCached }.let { it.isAsciiMode || it.isAsciiPunct }
+                ) -> label
 
         else -> keyAction!!.getLabel(parent) // 中文狀態顯示標籤
     }

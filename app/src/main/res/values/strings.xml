@@ -257,4 +257,13 @@
     <string name="word_segment">Word segment</string>
     <string name="star_success">Star success</string>
     <string name="ignore_system_gesture_insets">Ignore system gesture insets</string>
+    <string name="quick_paste_edit_title">Edit Quick Paste</string>
+    <string name="save">Save</string>
+    <string name="pin">Pin</string>
+    <string name="unpin">Unpin</string>
+    <string name="quick_paste">Quick Paste</string>
+    <string name="quick_paste_swipe_down">Swipe down for quick paste</string>
+    <string name="suggestion_bar_swipe_down">Suggestion bar swipe down</string>
+    <string name="add_quick_paste">Add quick paste</string>
+    <string name="slide_paste_empty">Add lines to personal-clipboard.md to slide-paste them</string>
 </resources>

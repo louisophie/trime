@@ -16,8 +16,11 @@ import com.osfans.trime.data.prefs.AppPrefs
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.math.PI
 import kotlin.math.abs
+import kotlin.math.atan2
 import kotlin.math.floor
+import kotlin.math.hypot
 
 open class GestureFrame(context: Context) : FrameLayout(context) {
 
@@ -51,6 +54,10 @@ open class GestureFrame(context: Context) : FrameLayout(context) {
     var onSwipeRight: (() -> Unit)? = null
     var onSwipeUp: (() -> Unit)? = null
     var onSwipeDown: (() -> Unit)? = null
+    var onSwipeLeftUp: (() -> Unit)? = null
+    var onSwipeRightUp: (() -> Unit)? = null
+    var onSwipeLeftDown: (() -> Unit)? = null
+    var onSwipeRightDown: (() -> Unit)? = null
 
     var onSlide: ((delta: Int, x: Float, y: Float) -> Unit)? = null
 
@@ -252,10 +259,8 @@ open class GestureFrame(context: Context) : FrameLayout(context) {
     }
 
     private fun detectSwipe(dx: Float, dy: Float): KeyBehavior {
-        val absDx = abs(dx)
-        val absDy = abs(dy)
-
-        val distance = if (absDx > absDy) absDx else absDy
+        // Euclidean travel so diagonal swipes measure the same as cardinal ones
+        val distance = hypot(dx, dy)
         val elapsed = SystemClock.elapsedRealtime() - startTime
 
         val velocity = if (elapsed > 0) {
@@ -270,10 +275,19 @@ open class GestureFrame(context: Context) : FrameLayout(context) {
         swipeTriggered = isSwipe
 
         if (!isSwipe) return KeyBehavior.CLICK
-        return if (absDx > absDy) {
-            if (dx > 0) KeyBehavior.SWIPE_RIGHT else KeyBehavior.SWIPE_LEFT
-        } else {
-            if (dy > 0) KeyBehavior.SWIPE_DOWN else KeyBehavior.SWIPE_UP
+        // Screen coords: x right, y down. atan2(dy, dx) in [-PI, PI].
+        // 8 equal 45-degree sectors centered on each compass direction.
+        val angle = atan2(dy, dx)
+        val eighth = PI / 8
+        return when {
+            angle > -eighth && angle <= eighth -> KeyBehavior.SWIPE_RIGHT
+            angle > eighth && angle <= 3 * eighth -> KeyBehavior.SWIPE_RIGHT_DOWN
+            angle > 3 * eighth && angle <= 5 * eighth -> KeyBehavior.SWIPE_DOWN
+            angle > 5 * eighth && angle <= 7 * eighth -> KeyBehavior.SWIPE_LEFT_DOWN
+            angle > 7 * eighth || angle <= -7 * eighth -> KeyBehavior.SWIPE_LEFT
+            angle > -7 * eighth && angle <= -5 * eighth -> KeyBehavior.SWIPE_LEFT_UP
+            angle > -5 * eighth && angle <= -3 * eighth -> KeyBehavior.SWIPE_UP
+            else -> KeyBehavior.SWIPE_RIGHT_UP
         }
     }
 
@@ -290,6 +304,10 @@ open class GestureFrame(context: Context) : FrameLayout(context) {
             KeyBehavior.SWIPE_RIGHT -> onSwipeRight?.invoke()
             KeyBehavior.SWIPE_UP -> onSwipeUp?.invoke()
             KeyBehavior.SWIPE_DOWN -> onSwipeDown?.invoke()
+            KeyBehavior.SWIPE_LEFT_UP -> onSwipeLeftUp?.invoke()
+            KeyBehavior.SWIPE_RIGHT_UP -> onSwipeRightUp?.invoke()
+            KeyBehavior.SWIPE_LEFT_DOWN -> onSwipeLeftDown?.invoke()
+            KeyBehavior.SWIPE_RIGHT_DOWN -> onSwipeRightDown?.invoke()
             else -> {}
         }
     }

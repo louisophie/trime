@@ -155,6 +155,7 @@ class AppPrefs(
             const val HOOK_SHIFT_NUM = "hook_shift_num"
             const val HOOK_SHIFT_SYMBOL = "hook_shift_symbol"
             const val HOOK_SHIFT_ARROW = "hook_shift_arrow"
+            const val SUGGESTION_BAR_SWIPE_DOWN = "suggestion_bar_swipe_down"
 
             const val MAX_SPAN_COUNT = "max_span_count"
             const val MAX_SPAN_COUNT_LANDSCAPE = "max_span_count_landscape"
@@ -166,6 +167,11 @@ class AppPrefs(
             LANDSCAPE(R.string.landscape_only),
             WIDE(R.string.wide_or_landscape),
             ALWAYS(R.string.always),
+        }
+
+        enum class SuggestionBarSwipeDownAction(override val stringRes: Int) : PreferenceDelegateEnum {
+            HIDE_KEYBOARD(R.string.hide_input_bar),
+            QUICK_PASTE(R.string.quick_paste),
         }
 
         val landscapeMode = enum(R.string.enable_landscape_mode, LANDSCAPE_MODE, LandscapeMode.NEVER)
@@ -305,6 +311,12 @@ class AppPrefs(
         )
 
         val horizontalCandidateMode = enum(R.string.horizontal_candidate_style, HORIZONTAL_CANDIDATE_MODE, CompactCandidateMode.NEVER_FILL)
+
+        val suggestionBarSwipeDownAction = enum(
+            R.string.suggestion_bar_swipe_down,
+            SUGGESTION_BAR_SWIPE_DOWN,
+            SuggestionBarSwipeDownAction.HIDE_KEYBOARD,
+        )
 
         val maxSpanCount = int(
             R.string.max_span_count,

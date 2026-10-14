@@ -9,6 +9,7 @@ import android.os.Parcelable
 import com.osfans.trime.data.theme.LiquidData
 import com.osfans.trime.util.splitWithSurrogates
 import com.osfans.trime.util.yaml.Node
+import com.osfans.trime.util.yaml.boolean
 import com.osfans.trime.util.yaml.enum
 import com.osfans.trime.util.yaml.float
 import com.osfans.trime.util.yaml.get
@@ -46,6 +47,8 @@ data class LiquidKeyboard(
         val type: LiquidData.Type,
         val name: String,
         val keys: List<KeyItem>,
+        val stay: Boolean = false,
+        val direct: Boolean = false,
     ) : Parcelable
 
     @Parcelize
@@ -113,6 +116,8 @@ data class LiquidKeyboard(
                                 type = type,
                                 name = name,
                                 keys = keys,
+                                stay = keyboardNode["stay"]?.boolean ?: false,
+                                direct = keyboardNode["direct"]?.boolean ?: false,
                             )
                         } catch (e: Exception) {
                             Timber.w(e, "Failed to decode LiquidKeyboard property 'keyboards'")

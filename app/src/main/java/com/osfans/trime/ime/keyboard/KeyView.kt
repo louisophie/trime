@@ -115,6 +115,8 @@ class KeyView(
 
                     KeyBehavior.DOUBLE_CLICK, KeyBehavior.LAZY_DOUBLE_CLICK,
                     KeyBehavior.SWIPE_UP, KeyBehavior.SWIPE_DOWN, KeyBehavior.SWIPE_LEFT, KeyBehavior.SWIPE_RIGHT,
+                    KeyBehavior.SWIPE_LEFT_UP, KeyBehavior.SWIPE_RIGHT_UP,
+                    KeyBehavior.SWIPE_LEFT_DOWN, KeyBehavior.SWIPE_RIGHT_DOWN,
                     ->
                         key.getAction(behavior)?.let { processKeyAction(it, behavior) }
 
