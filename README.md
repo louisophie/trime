@@ -39,7 +39,7 @@ By my original MOK's keyboard arrangment, this tongwen-T1D keyboard has more fea
   <img src="004.webp" alt="Personal-clipboard picking" width="300">
 
 - **Corner swipes** (mimics MOK): adding 4 corner-sliding for "swipe_right_up", "swipe_right_down", "swipe_left_up" and "swipe_left_down". With Trime's owned "click", "swipe_up", "swipe_down", "swipe_left", "swipe_right" and "long_click", there are 10 ways of key-in for a single button.
-- **Date and time**: inserts the current date and time.
+- **Current Date and Time inserting**
 - **One-tap switching** for IME and Trime's schema changing.
 
 ## Files for keyboard
