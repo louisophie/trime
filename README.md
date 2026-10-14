@@ -16,6 +16,8 @@ Luckily, there is opensourced Trime in which I am quite familiar with its core R
 
 By my original MOK's keyboard arrangment, this tongwen-T1D keyboard has more features due to its usage on tmux, micro and cli-agents (Opencode and ClaudeCode) in Termux. There are still many issues, and I will do as much as I can to improve this keyboard setting with my bloodsugar logging.
 
-|   |   |   |
-|![T1D-keyboard in MOK](001.webp)|![tongwen-T1D keyboard in Trime](002.webp)|![Schema list](003.webp)|
-|   |   |   |
+<p align="center">
+  <img src="001.webp" alt="T1D keyboard in MOK" width="30%">
+  <img src="002.webp" alt="tongwen-T1D keyboard in Trime" width="30%">
+  <img src="003.webp" alt="Schema list" width="30%">
+</p>
