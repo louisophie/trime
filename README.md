@@ -32,3 +32,19 @@ However, some issues happen when my old android phone is replaced by a new andro
 Luckily, here is opensourced Trime in which I am quite familiar with its core Rime, for that I have used ibus then fcitx for years. As a result, this tongwen-T1D keyboard in Trime is created.
 
 By my original MOK's keyboard arrangment, this tongwen-T1D keyboard has more features due to its usage on tmux, micro and cli-agents (Opencode and ClaudeCode) in Termux. There are still many issues, and I will do as much as I can to improve this keyboard setting with my bloodsugar logging.
+
+## Functions added
+- **Personal-clipboard** (mimics MOK): long-pressing the icon would pop up entries in "./rime/personal-clipboard.md", then sliding upon it for pasting.
+
+  <img src="004.webp" alt="Personal-clipboard picking" width="300">
+
+- **Corner swipes** (mimics MOK): adding 4 corner-sliding for "swipe_right_up", "swipe_right_down", "swipe_left_up" and "swipe_left_down". With Trime's owned "click", "swipe_up", "swipe_down", "swipe_left", "swipe_right" and "long_click", there are 10 ways of key-in for a single button.
+- **Date and time**: inserts the current date and time.
+- **One-tap switching** for IME and Trime's schema changing.
+
+## Files for keyboard
+- ./rime/tongwen-T1D.trime.yaml
+- ./rime/tongwen-T1D.trime.custom.yaml
+
+## Usage
+- After installing Trime and downloading the "rime" folder, redirect "User directory" to it in Profile option of of Trime's setting page.
