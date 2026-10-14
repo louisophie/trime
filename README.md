@@ -4,18 +4,15 @@
   <tr>
     <td align="center" width="33%">
       <img src="001.webp" alt="T1D keyboard in MOK"><br>
-      <b>T1D keyboard in MOK</b><br>
-      The original layout in Multiling O Keyboard
+      <b>T1D keyboard in MOK</b>
     </td>
     <td align="center" width="33%">
       <img src="002.webp" alt="tongwen-T1D keyboard in Trime"><br>
-      <b>tongwen-T1D in Trime</b><br>
-      The same layout ported to Trime
+      <b>tongwen-T1D in Trime</b>
     </td>
     <td align="center" width="33%">
       <img src="003.webp" alt="Schema list"><br>
-      <b>Schema list</b><br>
-      Switching between schemas
+      <b>Trime's Schema list</b>
     </td>
   </tr>
 </table>
