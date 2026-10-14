@@ -1,0 +1,57 @@
+# Rime schema for T1D - proof-of-concept converted from Multiling O T1D_2
+# encoding: utf-8
+schema:
+  schema_id: t1d
+  name: T1D
+  version: "0.1"
+  author: "converted from Multiling O's DIY t1d keyboard"
+  description: "T1D insulin/carb shorthand for Trime"
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
+  delimiter: " "
+  algebra:
+    - derive/^([a-z])$/$1/
+
+translator:
+  dictionary: t1d
+  enable_sentence: false
+  enable_encoder: false
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default

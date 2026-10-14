@@ -1,0 +1,720 @@
+patch:
+  __merge:
+    style:
+      keyboard_height: 260
+      key_height: 44
+      key_width: 10.0
+      horizontal_gap: 1
+      vertical_gap: 2
+      candidate_view_height: 25
+      key_text_size: 20
+      label_text_size: 16
+      round_corner: 8
+      preview_height: 60
+      preview_text_size: 40
+      enter_labels:  # 定义Enter键的文本
+        go: ⤷
+        done: ☑
+        next: ⏩
+        pre:  ⏪
+        search: 🔍︎
+        send: ➤
+    preset_keyboards:
+      t1d:
+        name: T1D
+        author: "louisophie"
+        ascii_mode: 1
+        reset_ascii_mode: false
+        keyboard_height: 271
+        width: 14
+        #height: 55
+        horizontal_gap: 4
+        vertical_gap: 4
+        candidate_view_height: 28
+        key_text_size: 18
+        label_text_size: 16
+        round_corner: 10
+        lock: true
+        keys:
+          #https://www.madeintext.com/
+          # Row 1: Navigation pad (HOME/END/arrows)
+          - {  #Row 1-1
+            label: "⇄", hint: "c", keep_label: true, click: "\t", width: 13, height: 40}
+          - {  #Row 1-2
+            label_symbol: "    🖼🔄", label: "$🩸  ", hint: '💾', keep_label: true, width: 14, 
+            click: "{micro_duration}", swipe_left: "{Control+e}", swipe_right_up: "{Control+e}{reopen}{Return}", swipe_up: "{micro_photo}", swipe_down: "{Control+s}", 
+            key_back_color: "#668fff"
+            }
+          - {  #Row 1-3
+            label_symbol: "q  w  e", label: "a  s  d", hint: '\  z  x', keep_label: true, 
+            key_text_size: 12, label_text_size: 12, 
+            key_text_offset_x: 1, key_symbol_offset_x: -2, key_hint_offset_x: -1, width: 15, 
+            key_back_color: "#be85e7", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "q", swipe_up: "w", swipe_right_up: "e", swipe_left: "a", click: 's', swipe_right: 'd', swipe_left_down: '\', swipe_down: "z", swipe_right_down: "x", long_click: " "}
+          - {  #Row 1-4
+            label_symbol: "r   t   y", label: "ⓕ g  h", hint: "c  v  b", keep_label: true, width: 15, 
+            key_text_size: 12, label_text_size: 12, 
+            key_text_offset_x: 1, key_symbol_offset_x: -2, 
+            key_back_color: "#be85e7", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "r", swipe_up: "t", swipe_right_up: "y", swipe_left: "f", click: 'g', swipe_right: 'h', swipe_left_down: "c", swipe_down: "v", swipe_right_down: "b", long_click: " "}
+          - {  #Row 1-5
+            label_symbol: "u  i  o", label: "ⓙ k  l", hint: "n  m  , ", keep_label: true, width: 15, 
+            key_text_size: 12, label_text_size: 12, 
+            key_text_offset_x: 1, key_symbol_offset_x: -2, 
+            key_back_color: "#be85e7", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "u", swipe_up: "i", swipe_right_up: "o", swipe_left: "j", click: "k", swipe_right: "l", 
+            swipe_left_down: "n", swipe_down: "m", swipe_right_down: ",", long_click: " "}
+          - {  #Row 1-6
+            label_symbol: "p   {}    |", 
+            label: "'  .  \" ", 
+            hint: "[]   /   ?", 
+            keep_label: true, 
+            key_text_size: 12, label_text_size: 12, width: 15, 
+            key_text_offset_x: 2, key_symbol_offset_x: -2, 
+            key_back_color: "#be85e7", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "p", swipe_up: "{}{Left}", swipe_right_up: "|", 
+            swipe_left: "'", click: '.', swipe_right: '"', 
+            swipe_left_down: "[]{Left}", swipe_down: "/", swipe_right_down: "?", 
+            long_click: " "}
+          - {  # Row 1-7
+            label: "⌦", label_symbol: "↺", hint: "↻", width: 13, keep_label: true, 
+            click: Delete, swipe_up: "{Control+Shift+z}", swipe_down: "{Control+z}"}
+          - {  # Row 2-1
+              label: '↑️', keep_label: true, width: 13, click: Up}
+          - {  # Row 2-2
+            label: "B / B", label_symbol: "A      A", hint: "T      T", keep_label: true, width: 14, 
+            click: "/", swipe_left_up: "<A", swipe_right_up: ">A", swipe_left: "<B", swipe_right: ">B", swipe_left_down: "<T", swipe_right_down: ">T", long_click: " "
+            }
+          - {  # Row 2-3
+            label: 'ℋ𝟙𝒩 ', label_symbol: "　 ➊  1.\n\n(hypo)", hint: "①", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "1", swipe_up: "¹", swipe_down: "₁", swipe_left: "H", swipe_right: "N", long_click: "hypo", swipe_right_up: "1. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 2-4
+            label: 'ℛ 𝟚 ½', label_symbol: "　 ➋  2.\n\n(hyper)", hint: "②", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "2", swipe_up: "²", swipe_down: "₂", swipe_left: "R", swipe_right: "½", long_click: "hyper",  swipe_right_up: "2. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"}
+          - {  # Row 2-5
+            label: 'ℐ𝟛𝒯 ', label_symbol: "　 ➌  3.\n\n(劑量)", hint: "③", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "3", swipe_up: "³", swipe_down: "₃", swipe_left: "I", swipe_right: "T", long_click: "劑量",  swipe_right_up: "3. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 2-6
+            label: '↓️️', label_symbol: ":", hint: '<!-- -->', keep_label: true, 
+            click: Down, width: 15, swipe_down: "<!-- -->{Left}{Left}{Left}"
+            }
+          - {  # Row 2-7
+            label: "✂️↓  ", label_symbol: "📑", hint: "📋", keep_label: true, width: 13, 
+            key_text_offset_x: -6, 
+            click: "Down", swipe_up: copy, swipe_down: paste, swipe_left: cut}
+            # Row 3: Up | Left/内/(AC)/mg/dL | 4B⁴T₄ | 5鹽⁵內₅ | 6⁻⁶⁺₆ | Right/{}/↵ | End
+          - {  # Row 3-1
+            label: "⤆️", keep_label: true, width: 13, 
+            key_text_size: 22, 
+            click: Home
+            }
+          - {  # Row 3-2
+            label: '内⇽内', label_symbol: "(AC)", hint: "mg/dL", keep_label: true, 
+            key_text_size: 12, 
+            click: Left, swipe_up: "(AC)", swipe_down: "mg/dL", swipe_left: "<内", swipe_right: ">内", long_click: ""
+            }
+          - {  # Row 3-3
+            label: "B 𝟜 T", label_symbol: "　 ➍  4.\n\n(cf.)", hint: "    ④  C", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "4", swipe_up: "⁴", swipe_down: "₄", swipe_left: "B", swipe_right: "T", swipe_right_down: "C", long_click: 'cf.',  swipe_right_up: "4. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 3-4
+            label: "鹽𝟝內", label_symbol: "　 ➎  5.\n\n(ch.)", hint: "⑤", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "5", swipe_up: "⁵", swipe_down: "₅", swipe_left: "鹽", swipe_right: "內", long_click: "ch.", swipe_right_up: "5. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 3-5
+            label: "⁻ 𝟞 ⁺", label_symbol: "　 ➏  6.\n\n(不錯)", hint: "⑥", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "6", swipe_up: "⁶", swipe_down: "₆", swipe_left: "⁻", swipe_right: "⁺", long_click: "不錯", swipe_right_up: "6. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 3-6
+            label: '<⇾>', label_symbol: "-`{}`", hint: '\n', keep_label: true,  width: 15, 
+            click: Right, swipe_up: t1d_dosage, swipe_down: "{End}{Right}{Return}{Up}", swipe_left: "<", swipe_right: ">"
+            #click: Right, swipe_up: '{End}{Shift+Return}{End}{backtick}{leftbrace}', swipe_down: "{End}{Right}{Return}{Up}", swipe_left: "<", swipe_right: ">"
+            }
+          - {  # Row 3-7
+            label: "⤇", label_symbol: "😌\n\n🤬", hint: '_ ', keep_label: true, width: 13, 
+            key_text_size: 22, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 1,
+            click: End, long_click: "violent thing", swipe_down: "_", swipe_up: "mental issue"
+            }
+          - {  # Row 4-1
+            label: "⇧", click: Shift_L, send_bindings: false, width: 13, keep_label: true, 
+            key_text_size: 24
+            }
+          - {  # Row 4-2
+            label: "I R T", label_symbol: "H\n\n(尚可)", hint: "N", keep_label: true, width: 14, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "R", swipe_up: "H", swipe_down: "N", swipe_left: "I", swipe_right: "T", long_click: "尚可"
+            }
+          - {  # Row 4-3
+            label: "𝟟", label_symbol: "　 ➐  7.\n\n(不錯)", hint: "⑦", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "7", swipe_up: "⁷", swipe_down: "₇", long_click: "不錯", swipe_right_up: "7. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 4-4
+            label: "🈷️𝟠🕛", label_symbol: "　 ➑  8.\n\n(不穩定)", hint: "朙 ⑧ 倉", keep_label: true, width: 15,  key_text_offset_y: -3, key_symbol_offset_y: 8, key_hint_offset_y: 3, 
+            click: "8", swipe_up: "⁸", swipe_down: "₈", swipe_left: "#### {date_d}{Return}", swipe_right: "{time_t} ", swipe_right_up: "8. ", swipe_left_down: luna_pinyin_ch, swipe_right_down: cangjie5_ch, long_click: "不穩定", 
+             key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 4-5
+            label: "- 𝟡 +", label_symbol: "　 ➒  9.\n\n(穩定)", hint: "⑨", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "9", swipe_up: "⁹", swipe_down: "₉", swipe_left: "-", swipe_right: "+", long_click: "穩定", swipe_right_up: "9. ", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  #Row 4-6
+            label: "  𝟘 ⛶", label_symbol: "⓿", hint: "⓪", keep_label: true, width: 15, 
+            click: "0", swipe_up: "⁰", swipe_down: "₀", swipe_right: "select_all", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"}
+          - {  # Row 4-7
+            label: "⌫", click: BackSpace, swipe_left: Escape, width: 13, keep_label: true}
+          - {  # Row 5-1
+            label: "En", keep_label: true, width: 13, height: 30, click: spellless_en}
+          - {  # Row 5-2
+            label: "⌘", keep_label: true, click: liquid_keyboard_switch}
+          - {  # Row 5-3
+            label: "␣", label_symbol: "T1D", keep_label: true, width: 45, click: space, swipe_left: schema_prev, swipe_right: schema_next, long_click: Mode_switch}
+          - {  # Row 5-4
+            label: "123", keep_label: true, click: Keyboard_number, width: 15}
+          - {  # Row 5-5
+            label: "↲", keep_label: true, click: Return, composing: Return1, long_click: CommitComment, width: 13}
+      t1d_eng:
+        name: T1D_eng
+        author: "louisophie"
+        ascii_mode: 1
+        reset_ascii_mode: false
+        keyboard_height: 271
+        width: 14
+        #height: 55
+        horizontal_gap: 4
+        vertical_gap: 4
+        candidate_view_height: 28
+        key_text_size: 18
+        label_text_size: 16
+        round_corner: 10
+        lock: true
+        keys:
+          #https://www.madeintext.com/
+          # Row 1: Navigation pad (HOME/END/arrows)
+          - {  #Row 1-1
+            label: "⇄", hint: "eng", keep_label: true, click: "\t", width: 13, height: 40}
+          - {  #Row 1-2
+            click: ":", width: 14}
+          - {  #Row 1-3
+            label_symbol: "q  w  e", label: "a  s  d", hint: '\  z  x', keep_label: true, 
+            key_text_size: 12, label_text_size: 12, 
+            key_text_offset_x: 1, key_symbol_offset_x: -2, key_hint_offset_x: -1, width: 15, 
+            key_back_color: "#e78d85", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "q", swipe_up: "w", swipe_right_up: "e", swipe_left: "a", click: 's', swipe_right: 'd', swipe_left_down: '\', swipe_down: "z", swipe_right_down: "x", long_click: " "}
+          - {  #Row 1-4
+            label_symbol: "r   t   y", label: "ⓕ g  h", hint: "c  v  b", keep_label: true, width: 15, 
+            key_text_size: 12, label_text_size: 12, 
+            key_text_offset_x: 1, key_symbol_offset_x: -2, 
+            key_back_color: "#e78d85", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "r", swipe_up: "t", swipe_right_up: "y", swipe_left: "f", click: 'g', swipe_right: 'h', swipe_left_down: "c", swipe_down: "v", swipe_right_down: "b", long_click: " "}
+          - {  #Row 1-5
+            label_symbol: "u  i  o", label: "ⓙ k  l", hint: "n  m  , ", keep_label: true, width: 15, 
+            key_text_size: 12, label_text_size: 12, 
+            key_text_offset_x: 1, key_symbol_offset_x: -2, 
+            key_back_color: "#e78d85", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "u", swipe_up: "i", swipe_right_up: "o", swipe_left: "j", click: "k", swipe_right: "l", 
+            swipe_left_down: "n", swipe_down: "m", swipe_right_down: ",", long_click: " "}
+          - {  #Row 1-6
+            label_symbol: "p   {}    |", 
+            label: "'  .  \" ", 
+            hint: "[]   /   ?", 
+            keep_label: true, 
+            key_text_size: 12, label_text_size: 12, width: 15, 
+            key_text_offset_x: 2, key_symbol_offset_x: -2, 
+            key_back_color: "#e78d85", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF",
+            swipe_left_up: "p", swipe_up: "{}{Left}", swipe_right_up: "|", 
+            swipe_left: "'", click: '.', swipe_right: '"', 
+            swipe_left_down: "[]{Left}", swipe_down: "/", swipe_right_down: "?", 
+            long_click: " "}
+          - {  # Row 1-7
+            label: "⌦", label_symbol: "↺", hint: "↻", width: 13, keep_label: true, 
+            click: Delete, swipe_up: "{Control+Shift+z}", swipe_down: "{Control+z}"}
+          - {  # Row 2-1
+              label: '↑️', keep_label: true, width: 13, click: Up}
+          - {  # Row 2-2
+            label: "B / B", label_symbol: "A      A", hint: "T      T", keep_label: true, width: 14, 
+            click: "/", swipe_left_up: "<A", swipe_right_up: ">A", swipe_left: "<B", swipe_right: ">B", swipe_left_down: "<T", swipe_right_down: ">T", long_click: " "
+            }
+          - {  # Row 2-3
+            label: 'ℋ𝟙𝒩 ', label_symbol: "➊\n\nhypo", hint: "①", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "1", swipe_up: "¹", swipe_down: "₁", swipe_left: "H", swipe_right: "N", long_click: "hypo", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 2-4
+            label: 'ℛ 𝟚 ½', label_symbol: "➋\n\nhyper", hint: "②", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "2", swipe_up: "²", swipe_down: "₂", swipe_left: "R", swipe_right: "½", long_click: "hyper", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"}
+          - {  # Row 2-5
+            label: 'ℐ𝟛𝒯 ', label_symbol: "➌\n\n(unit)", hint: "③", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "3", swipe_up: "³", swipe_down: "₃", swipe_left: "I", swipe_right: "T", long_click: "unit", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 2-6
+            label: '↓️️', hint: '<!-- -->', keep_label: true, 
+            click: Down, width: 15, swipe_down: "<!-- -->{Left}{Left}{Left}"
+            }
+          - {  # Row 2-7
+            label: "✂️↓  ", label_symbol: "📑", hint: "📋", keep_label: true, width: 13, 
+            key_text_offset_x: -6, 
+            click: "Down", swipe_up: copy, swipe_down: paste, swipe_left: cut}
+            # Row 3: Up | Left/内/(AC)/mg/dL | 4B⁴T₄ | 5鹽⁵內₅ | 6⁻⁶⁺₆ | Right/{}/↵ | End
+          - {  # Row 3-1
+            label: "⤆️", keep_label: true, width: 13, 
+            key_text_size: 22, 
+            click: Home
+            }
+          - {  # Row 3-2
+            label: 'In⇽In', label_symbol: "(AC)", hint: "mg/dL", keep_label: true, 
+            key_text_size: 12, 
+            click: Left, swipe_up: "(AC)", swipe_down: "mg/dL", swipe_left: "<In", swipe_right: ">In", long_click: ""
+            }
+          - {  # Row 3-3
+            label: "B 𝟜 T", label_symbol: "➍\n\ncf.", hint: "    ④  C", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "4", swipe_up: "⁴", swipe_down: "₄", swipe_left: "B", swipe_right: "T", swipe_right_down: "C", long_click: 'cf.', 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 3-4
+            label: "Sa.𝟝In", label_symbol: "➎\n\nch.", hint: "⑤", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "5", swipe_up: "⁵", swipe_down: "₅", swipe_left: "salt", swipe_right: "In", long_click: "ch.", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 3-5
+            label: "⁻ 𝟞 ⁺", label_symbol: "➏\n\ngood", hint: "⑥", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "6", swipe_up: "⁶", swipe_down: "₆", swipe_left: "⁻", swipe_right: "⁺", long_click: "good", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 3-6
+            label: '<⇾>', label_symbol: "-`{}`", hint: '\n', keep_label: true,  width: 15, 
+            click: Right, swipe_up: t1d_dosage, swipe_down: "{End}{Right}{Return}{Up}", swipe_left: "<", swipe_right: ">"
+            }
+          - {  # Row 3-7
+            label: "⤇", label_symbol: "😌\n\n🤬", hint: '_ ', keep_label: true, width: 13, 
+            key_text_size: 22, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 1,
+            click: End, long_click: "violent thing", swipe_down: "_", swipe_up: "mental issue"
+            }
+          - {  # Row 4-1
+            label: "⇧", click: Shift_L, send_bindings: false, width: 13, keep_label: true, 
+            key_text_size: 24
+            }
+          - {  # Row 4-2
+            label: "I R T", label_symbol: "H\n\nOK", hint: "N", keep_label: true, width: 14, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "R", swipe_up: "H", swipe_down: "N", swipe_left: "I", swipe_right: "T", long_click: "OK"
+            }
+          - {  # Row 4-3
+            label: "𝟟", label_symbol: "➐\n\nfit", hint: "⑦", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "7", swipe_up: "⁷", swipe_down: "₇", long_click: "fit", 
+             key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 4-4  key_symbol_offset_y: 10, 
+            label: "🈷️𝟠🕛", label_symbol: "a  ➑  b\n\nshaky", hint: " ⑧ ", keep_label: true, width: 15,  key_text_offset_y: -3, key_symbol_offset_y: 8, key_hint_offset_y: 3, 
+            click: "8", swipe_up: "⁸", swipe_down: "₈", swipe_left: "#### {date_d}{Return}", swipe_right: "{time_t} ", swipe_left_up: "a", swipe_right_up: "b", swipe_left_down: luna_pinyin_ch, swipe_right_down: cangjie5_ch, long_click: "shaky", 
+             key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  # Row 4-5
+            label: "- 𝟡 +", label_symbol: "➒\n\nstable", hint: "⑨", keep_label: true, width: 15, 
+            key_text_offset_y: -4, key_symbol_offset_y: 8,  key_hint_offset_y: 3,
+            click: "9", swipe_up: "⁹", swipe_down: "₉", swipe_left: "-", swipe_right: "+", long_click: "stable", 
+             key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"
+            }
+          - {  #Row 4-6
+            label: "  𝟘 ⛶", label_symbol: "⓿", hint: "⓪", keep_label: true, width: 15, 
+            click: "0", swipe_up: "⁰", swipe_down: "₀", swipe_right: "select_all", 
+            key_back_color: "#000000", key_text_color: "#FFFFFF", key_symbol_color: "#FFFFFF"}
+          - {  # Row 4-7
+            label: "⌫", click: BackSpace, swipe_left: Escape, width: 13, keep_label: true}
+          - {  # Row 5-1
+            label: "En", keep_label: true, width: 13, height: 30, click: spellless_en}
+          - {  # Row 5-2
+            label: "⌘", keep_label: true, click: liquid_keyboard_switch}
+          - {  # Row 5-3
+            label: "␣", label_symbol: "T1D", keep_label: true, width: 45, click: space, swipe_left: schema_prev, swipe_right: schema_next, long_click: Mode_switch}
+          - {  # Row 5-4
+            label: "123", keep_label: true, click: Keyboard_number, width: 15}
+          - {  # Row 5-5
+            label: "↲", keep_label: true, click: Return, composing: Return1, long_click: CommitComment, width: 13}
+      luna_pinyin:
+        name: 朙月鍵盤
+        author: "osfans <waxaca@163.com>"
+        ascii_mode: 0
+        reset_ascii_mode: false
+        columns: 10 #鍵盤列數，超過則自動換行，默認30列
+        width: 10
+        height: 55
+        lock: true
+        key_symbol_offset_x: 0
+        key_symbol_offset_y: 0
+        key_text_offset_x: 0
+        key_text_offset_y: 0
+        key_hint_offset_x: 0
+        key_hint_offset_y: 0
+        key_press_offset_x: 2
+        key_press_offset_y: 2
+        keys:
+        - {click: '1', long_click: '¡', swipe_up: '¹', swipe_down: '¹', height: 40}
+        - {click: '2', long_click: '@', swipe_up: '²'}
+        - {click: '3', long_click: '#', swipe_up: '³'}
+        - {click: '4', long_click: '$', swipe_up: '¤', swipe_down: '£'}
+        - {click: '5', long_click: '%', swipe_up: '€'}
+        - {click: '6', long_click: '^', swipe_up: '¼'}
+        - {click: '7', long_click: '&', swipe_up: '½'}
+        - {click: '8', long_click: '*', swipe_up: '¾'}
+        - {click: '9', long_click: '(', swipe_left: '(', swipe_right: ')', swipe_up: '‘'}
+        - {click: '0', long_click: ')', swipe_down: '_', swipe_up: '’', swipe_left: '¥'}
+        - {click: 'q', long_click: '~', swipe_up: 'ä'}
+        - {click: 'w', long_click: '+', swipe_up: 'å'}
+        - {click: 'e', long_click: '=', swipe_up: 'é'}
+        - {click: 'r', long_click: '×', swipe_up: '®'}
+        - {click: 't', long_click: '|', swipe_up: '™'}
+        - {click: 'y', long_click: '©', swipe_up: '§'}
+        - {click: 'u', long_click: '[', swipe_up: 'ü'}
+        - {click: 'i', long_click: ']', swipe_up: 'ï'}
+        - {click: 'o', long_click: '{', swipe_up: 'ö'}
+        - {click: 'p', long_click: '}', swipe_up: 'ø'}
+        - {width: 5}
+        - {click: 'a', long_click: select_all, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+        - {click: 's', long_click: '~', swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
+        - {click: 'd', long_click: '-', swipe_down: '_'}
+        - {click: 'f', long_click: '+', swipe_down: '='}
+        - {click: 'g', long_click: '\\', swipe_down: '|'}
+        - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
+        - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
+        - {click: 'k', long_click: '`', swipe_down: '¬'}
+        - {click: 'l', long_click: '(){Left}', swipe_down: '='}
+        - {width: 5}
+        - {click: Shift_L, send_bindings: false, width: 15}
+        - {click: 'z', long_click: '`', swipe_down: '[]{Left}'}
+        - {click: 'x', long_click: cut, swipe_down: '{}{Left}'}
+        - {label: "c", hint: "倉", keep_label: true, click: 'c', long_click: copy, swipe_down: cangjie5_ch}
+        - {click: 'v', long_click: paste_clip, swipe_down: paste}
+        - {label: "b", hint: "T1D", click: 'b', long_click: ';', swipe_down: t1d_back}
+        - {click: 'n', long_click: ':', swipe_down: ':'}
+        - {click: 'm', long_click: '?', swipe_down: '|'}
+        - {click: BackSpace, swipe_left: Escape, width: 15}
+        - {  #Row 5
+          label: "En", label_symbol: "⌘", keep_label: true, width: 11, height: 40, key_text_size: 12, label_text_size: 12, click: spellless_en, long_click: liquid_keyboard_switch}
+        - {click: "'", long_click: '"'}
+        - {click: '/', long_click: '?'}
+        - { # Row 5-4 space
+            label: '朙', hint: "␣", keep_label: true, width: 38, 
+            key_text_size: 12, label_text_size: 10, 
+            key_text_offset_y: 3, key_hint_offset_y: -1, 
+            click: space, swipe_left: cangjie5_ch, swipe_right: t1d_back, long_click: Mode_switch
+          }
+        - {width: 3}
+        - {click: ',', long_click: '<', width: 7}
+        - {click: '.', long_click: '>', width: 7}
+        - {click: Return, composing: Return1, long_click: CommitComment, width: 14, key_text_offset_y: 4}
+      cangjie5:
+        name: 倉頡五代鍵盤
+        author: "皛筱晓小笨鱼 (line-added and modified by louisophie)"
+        ascii_mode: 0
+        reset_ascii_mode: false
+        width: 10
+        height: 55
+        keys:
+        - {  #Row 1-1
+          click: '1', long_click: '¡', swipe_up: '¹', swipe_down: '¹', height: 40}
+        - {click: '2', long_click: '@', swipe_up: '²'}
+        - {click: '3', long_click: '#', swipe_up: '³'}
+        - {click: '4', long_click: '$', swipe_up: '¤', swipe_down: '£'}
+        - {click: '5', long_click: '%', swipe_up: '€'}
+        - {click: '6', long_click: '^', swipe_up: '¼'}
+        - {click: '7', long_click: '&', swipe_up: '½'}
+        - {click: '8', long_click: '*', swipe_up: '¾'}
+        - {click: '9', long_click: '(', swipe_left: '(', swipe_right: ')', swipe_up: '‘'}
+        - {click: '0', long_click: ')', swipe_down: '_', swipe_up: '’', swipe_left: '¥'}
+        - {  #Row 2-1
+          label: 'q', label_symbol: '_', hint: '手', keep_label: true, long_click: '_', click: q}
+        - {label: 'w', label_symbol: '-', hint: '田', keep_label: true, long_click: '-', click: w}
+        - {label: 'e', label_symbol: '+', hint: '水', keep_label: true, long_click: '+', click: e}
+        - {label: 'r', label_symbol: '=', hint: '口', keep_label: true, long_click: '=', click: r}
+        - {label: 't', label_symbol: '|', hint: '廿', keep_label: true, long_click: '|', click: t}
+        - {label: 'y', label_symbol: '\', hint: '卜', keep_label: true, long_click: '\', click: y}
+        - {label: 'u', label_symbol: '[', hint: '山', keep_label: true, long_click: '[', click: u}
+        - {label: 'i', label_symbol: ']', hint: '戈', keep_label: true, long_click: ']', click: i}
+        - {label: 'o', label_symbol: '{', hint: '人', keep_label: true, long_click: '{', click: o}
+        - {label: 'p', label_symbol: '}', hint: '心', keep_label: true, long_click: '}', click: p}
+        #- {long_click: ':', click: ';'}
+        - {  #Row 3-1
+          width: 5}
+        - {label: 'a', label_symbol: '`', hint: '日', keep_label: true, long_click: '`', click: a}
+        - {label: 's', label_symbol: '~', hint: '尸', keep_label: true, long_click: '~', click: s}
+        - {label: 'd', label_symbol: '', hint: '木', keep_label: true, long_click: Up, click: d}
+        - {label: 'f', label_symbol: '!', hint: '火', keep_label: true, long_click: '!', click: f}
+        - {label: 'g', label_symbol: '@', hint: '土', keep_label: true, long_click: '@', click: g}
+        - {label: 'h', label_symbol: '#', hint: '竹', keep_label: true, long_click: '#', click: h}
+        - {label: 'j', label_symbol: '$', hint: '十', keep_label: true, long_click: '$', click: j}
+        - {label: 'k', label_symbol: '%', hint: '大', keep_label: true, long_click: '%', click: k}
+        - {label: 'l', label_symbol: '^', hint: '中', keep_label: true, long_click: '^', click: l}
+        #- {long_click: '?', click: '/'}
+        #- {width: 5}
+        - {  #Row 4-1
+          click: Shift_L, send_bindings: false, width: 15}
+        - {label: 'z', label_symbol: '', hint: '符', keep_label: true, long_click: Left, click: z}
+        - {label: 'x', label_symbol: '', hint: '難', keep_label: true, long_click: Down, click: x}
+        - {label: 'c', label_symbol: '', hint: "金\nT1D\n", keep_label: true, symbol_text_size: 8 ,long_click: Right, click: c, swipe_down: t1d_back}
+        - {label: 'v', label_symbol: '&', hint: '女', keep_label: true, long_click: '&', click: v}
+        - {label: 'b', label_symbol: '*', hint: "月\n朙\n", keep_label: true, symbol_text_size: 8 ,long_click: '*', click: b, swipe_down: luna_pinyin_ch}
+        - {label: 'n', label_symbol: '(', hint: '弓', keep_label: true, long_click: '(', click: n}
+        - {label: 'm', label_symbol: ')', hint: '一', keep_label: true, long_click: ')', click: m}
+        - {click: BackSpace, swipe_left: Escape, width: 15}
+        - {  #Row 5-1
+          label: "En", keep_label: true, width: 10, height: 40, click: spellless_en}
+        - {label: "⌘", keep_label: true, width: 10, 
+        click: liquid_keyboard_switch}
+        - {label: "123", keep_label: true, width: 12, click: Keyboard_number}
+        - { #Row 4-4 space
+            label: "倉", hint: '␣', keep_label: true, width: 38, 
+            key_text_size: 12, 
+            key_symbol_offset_y: 1, key_text_offset_y: 2, key_hint_offset_y: -3, 
+            click: space, swipe_left: t1d_back, swipe_right: luna_pinyin_ch, long_click: Mode_switch
+            }
+        - {width: 2}
+        - {click: ',',  width: 8, long_click: '?'}
+        - {long_click: '/', click: '.' ,width: 8}
+        - {click: Return, composing: Return1, long_click: CommitComment, width: 12}
+      easy_en:
+        name: 英文    #預設26鍵
+        author: louisophie    #"osfans <waxaca@163.com>"
+        ascii_mode: 0
+        reset_ascii_mode: false
+        columns: 10 #鍵盤列數，超過則自動換行，默認30列
+        width: 10
+        height: 55
+        lock: true
+        key_symbol_offset_x: 0
+        key_symbol_offset_y: 0
+        key_text_offset_x: 0
+        key_text_offset_y: 0
+        key_hint_offset_x: 0
+        key_hint_offset_y: 0
+        key_press_offset_x: 2
+        key_press_offset_y: 2
+        keys:
+        - {click: '1', long_click: '¡', swipe_up: '¹', swipe_down: '¹', height: 40}
+        - {click: '2', long_click: '@', swipe_up: '²'}
+        - {click: '3', long_click: '#', swipe_up: '³'}
+        - {click: '4', long_click: '$', swipe_up: '¤', swipe_down: '£'}
+        - {click: '5', long_click: '%', swipe_up: '€'}
+        - {click: '6', long_click: '^', swipe_up: '¼'}
+        - {click: '7', long_click: '&', swipe_up: '½'}
+        - {click: '8', long_click: '*', swipe_up: '¾'}
+        - {click: '9', long_click: '(', swipe_left: '(', swipe_right: ')', swipe_up: '‘'}
+        - {click: '0', long_click: ')', swipe_down: '_', swipe_up: '’', swipe_left: '¥'}
+        - {click: 'q', long_click: '~', swipe_up: 'ä'}
+        - {click: 'w', long_click: '+', swipe_up: 'å'}
+        - {click: 'e', long_click: '=', swipe_up: 'é'}
+        - {click: 'r', long_click: '×', swipe_up: '®'}
+        - {click: 't', long_click: '|', swipe_up: '™'}
+        - {click: 'y', long_click: '©', swipe_up: '§'}
+        - {click: 'u', long_click: '[', swipe_up: 'ü'}
+        - {click: 'i', long_click: ']', swipe_up: 'ï'}
+        - {click: 'o', long_click: '{', swipe_up: 'ö'}
+        - {click: 'p', long_click: '}', swipe_up: 'ø'}
+        - {width: 5}
+        - {click: 'a', long_click: select_all, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+        - {click: 's', long_click: '~', swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
+        - {click: 'd', long_click: '-', swipe_down: '_'}
+        - {click: 'f', long_click: '+', swipe_down: '='}
+        - {click: 'g', long_click: '\\', swipe_down: '|'}
+        - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
+        - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
+        - {click: 'k', long_click: '`', swipe_down: '¬'}
+        - {click: 'l', long_click: '(){Left}', swipe_down: '='}
+        - {width: 5}
+        - {click: Shift_L, send_bindings: false, width: 15}
+        - {click: 'z', long_click: '`', swipe_down: '[]{Left}'}
+        - {click: 'x', long_click: cut, swipe_down: '{}{Left}'}
+        - {click: 'c', long_click: copy, swipe_down: ' '}
+        - {click: 'v', long_click: paste_clip, swipe_down: paste}
+        - {click: 'b', long_click: ';', swipe_down: '\\'}
+        - {click: 'n', long_click: ':', swipe_down: ':'}
+        - {click: 'm', long_click: '?', swipe_down: '|'}
+        - {click: BackSpace, swipe_left: Escape, width: 15}
+        #Row4
+        #- {label: "⌨", label_symbol: "⌘", keep_label: true, width: 11, height: 40, key_text_size: 12, label_text_size: 12, click: Keyboard_symbols, long_click: liquid_keyboard_switch}
+        - {label: "Ch", label_symbol: "⌘", keep_label: true, width: 11, height: 40, key_text_size: 12, label_text_size: 12, click:   schema_back, long_click: liquid_keyboard_switch}
+        #- {click: Keyboard_default, long_click: Keyboard_number}
+        - {click: "'", long_click: '"'}
+        - {click: '/', long_click: '?'}
+        - {click: space, swipe_left: schema_prev, swipe_right: schema_next, width: 38}
+        - {click: ',', long_click: '<', width: 8}
+        - {click: '.', long_click: '>', width: 8}
+        #- {click: Return, composing: Return1, long_click: CommitComment, width: 15}
+        - {label: "↲", keep_label: true, click: Return, composing: Return1, long_click: CommitComment, width: 15}
+
+        #keys:
+      spellless:
+        name: 英文    #預設26鍵
+        author: louisophie    #"osfans <waxaca@163.com>"
+        ascii_mode: 0
+        reset_ascii_mode: false
+        columns: 10 #鍵盤列數，超過則自動換行，默認30列
+        width: 10
+        height: 55
+        lock: true
+        key_symbol_offset_x: 0
+        key_symbol_offset_y: 0
+        key_text_offset_x: 0
+        key_text_offset_y: 0
+        key_hint_offset_x: 0
+        key_hint_offset_y: 0
+        key_press_offset_x: 2
+        key_press_offset_y: 2
+        keys:
+        - {  #Row 1-1
+          click: '1', long_click: '¡', swipe_up: '¹', swipe_down: '¹', height: 40}
+        - {click: '2', long_click: '@', swipe_up: '²'}
+        - {click: '3', long_click: '#', swipe_up: '³'}
+        - {click: '4', long_click: '$', swipe_up: '¤', swipe_down: '£'}
+        - {click: '5', long_click: '%', swipe_up: '€'}
+        - {click: '6', long_click: '^', swipe_up: '¼'}
+        - {click: '7', long_click: '&', swipe_up: '½'}
+        - {click: '8', long_click: '*', swipe_up: '¾'}
+        - {click: '9', long_click: '(', swipe_left: '(', swipe_right: ')', swipe_up: '‘'}
+        - {click: '0', long_click: ')', swipe_down: '_', swipe_up: '’', swipe_left: '¥'}
+        - {  #Row 2-1
+          click: 'q', long_click: '~', swipe_up: 'ä'}
+        - {click: 'w', long_click: '+', swipe_up: 'å'}
+        - {click: 'e', long_click: '=', swipe_up: 'é'}
+        - {click: 'r', long_click: '×', swipe_up: '®'}
+        - {click: 't', long_click: '|', swipe_up: '™'}
+        - {click: 'y', long_click: '©', swipe_up: '§'}
+        - {click: 'u', long_click: '[', swipe_up: 'ü'}
+        - {click: 'i', long_click: ']', swipe_up: 'ï'}
+        - {click: 'o', long_click: '{', swipe_up: 'ö'}
+        - {click: 'p', long_click: '}', swipe_up: 'ø'}
+        - {  #Row 3-1
+          label: '𝈜',click: t1d_back, width: 5, keep_label: true}
+        - {click: 'a', long_click: select_all, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+        - {click: 's', long_click: '~', swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
+        - {click: 'd', long_click: '-', swipe_down: '_'}
+        - {click: 'f', long_click: '+', swipe_down: '='}
+        - {click: 'g', long_click: '\\', swipe_down: '|'}
+        - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
+        - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
+        - {click: 'k', long_click: '`', swipe_down: '¬'}
+        - {click: 'l', long_click: '(){Left}', swipe_down: '='}
+        #- {width: 5}
+        - {  #Row 4-1
+          click: Shift_L, send_bindings: false, width: 15}
+        - {click: 'z', long_click: '`', swipe_down: '[]{Left}'}
+        - {click: 'x', long_click: cut, swipe_down: '{}{Left}'}
+        - {click: 'c', long_click: copy, swipe_down: ' '}
+        - {click: 'v', long_click: paste_clip, swipe_down: paste}
+        - {click: 'b', long_click: ';', swipe_down: '\\'}
+        - {click: 'n', long_click: ':', swipe_down: ':'}
+        - {click: 'm', long_click: '?', swipe_down: '|'}
+        - {click: BackSpace, swipe_left: Escape, width: 15}
+        - {  #Row 5-1
+          label: "Ch", label_symbol: "⌘", keep_label: true, width: 11, height: 40, key_text_size: 12, label_text_size: 12, click:   schema_back, long_click: liquid_keyboard_switch}
+        #- {click: Keyboard_default, long_click: Keyboard_number}
+        - {click: "'", long_click: '"'}
+        - {click: '/', long_click: '?'}
+        - {  #Row 5-4
+          label_symbol: "spellless", keep_label: true, click: space, width: 38}
+        - {width: 3}
+        - {click: ',', long_click: '<', width: 7}
+        - {click: '.', long_click: '>', width: 7}
+        #- {click: Return, composing: Return1, long_click: CommitComment, width: 15}
+        - {label: "↲", keep_label: true, click: Return, composing: Return1, long_click: CommitComment, width: 14}
+    preset_keys:
+      date_d: {label: 日期, send: FUNCTION, command: date, option: "yyyyMMddE"}
+      time_t: {label: 時間, send: FUNCTION, command: date, option: "HH:mm"}
+      quick_paste_toggle: {label: 快貼, send: FUNCTION, command: quick_paste}
+      #paste_clip: {label: 粘貼, send: FUNCTION, command: clipboard}
+      schema_prev: {label: 上一方案, send: FUNCTION, command: schema_prev}
+      schema_next: {label: 下一方案, send: FUNCTION, command: schema_next}
+      #preset_keys/personal_tab: {label: 個人, send: FUNCTION, command: liquid_keyboard, option: "個人"}
+      #Open the personal-clipboard list (file-backed md lines)
+      #Open the personal clipboard popup (standalone window over the plugin)
+      personal_clipboard_tab: {label: ⚝, send: FUNCTION, command: personal_clipboard}
+      codebrace_backtick: {commit: ' -`{}`'}
+      t1d_dosage: {text: '{codebrace_backtick}{Left}{Left}'}
+      #preset_keys/menu_keyboard: {label: 菜单, send: FUNCTION, command: menu_keyboard}
+      t1d_back: {label: "T1D", send: FUNCTION, command: schema_select, option: t1d}
+      easy_en: {label: "⌨", send: FUNCTION, command: schema_select, option: easy_en}
+      spellless_en: {label: "⌨", send: FUNCTION, command: schema_select, option: spellless}
+      cangjie5_ch: {label: "倉", send: FUNCTION, command: schema_select, option: cangjie5}
+      luna_pinyin_ch: {label: "朙", send: FUNCTION, command: schema_select, option: luna_pinyin}
+      schema_back: {label: "⏎", send: FUNCTION, command: schema_select, option: .last}
+      select_all: {label: ⛶, functional: false, send: Control+a}
+      cut: {label: ✂, functional: false, send: Control+x}
+      copy: {label: ⧉, functional: false, send: Control+c}
+      paste: {label: 🗒, functional: false, send: Control+v}
+      paste_clip: {label: 🗒, send: FUNCTION, command: clipboard}
+      Menu: {label: ⫶☰, functional: false, send: MENU}
+      Theme_settings: {label: 🎨, send: SETTINGS, option: "theme"}
+      Mode_switch: {toggle: ascii_mode, functional: false, send: SWITCH_CHARSET, states: [ Ch, En ]}
+      #CommitRawInput: {label: 编码, send: Control+Return}
+      #CommitScriptText: {label: 编码, send: Shift+Return}
+      #CommitComment: {label: a, send: Control+Shift+Return}
+      CommitComment: {label: Enter}
+      #Return: { label: enter_labels, preview: '↩', functional: false, send: Return }
+      #Return1: {label: Enter, preview: '↩', functional: false, send: Return}
+      #Return2: {label: 回车, send: Return }
+      #Control_L: {label: "退格", send: Control_L, functional: false}
+      BackSpace: {label: ⌫}
+      BackSpace2: {label: ⌫}
+      Home: {label: ⇱, send: Home, functional: false}
+      End: {label: ⇲, send: End, functional: false}
+      Shift_L2: {label: ⇪, preview: '⇪', functional: false, send: Shift_L}
+      redo: {label: "↺", functional: false, send: Control+Shift+z}
+      undo: {label: "↻", functional: false, send: Control+z}
+      space1: {repeatable: false, label: '␣', functional: false, send: space}
+      #tmp_bash_commit: {label: bash, commit: "term bash -c 'bash tmp.bash'"}
+      micro_duration: {label: "🩸", text: "{Control+s}{Control+e}{term bash -c 'bash tmp.bash'}{Return}{Hide}"}
+      micro_photo: {label: "🩸", text: "{Control+s}{Control+e}{term bash -c 'perl bloodsugar_meal-photo.pl'}{Return}"}
+      #micro_save: {label: "🩸", text: "{Control+s}{Control+e}{term bash -c 'perl bloodsugar_meal-photo.pl'}{Return}"}
+
+    tool_bar:
+      button_spacing: 1
+      padding: 1
+      #font_size: 5
+      buttons:
+        - {foreground: {style: "ic@keyboard_close", normal: candidate_text_color}, action: Hide}
+        - {foreground: {style: "ic@clipboard_list"}, action: personal_clipboard_tab}
+        #- {foreground: {style: "ic@emoticon"}, action: liquid_keyboard_emoji}
+        - {foreground: {style: "ic@clipboard"}, action: clipboard_window}
+        - {foreground: {style: "ic@cursor_text"}, action: Keyboard_editor}
+        #- {foreground: {option_styles: ["ic@moon_full", "ic@moon_new"]}, action: Zenkaku_Hankaku}
+        - {foreground: {style: "倉"}, action: cangjie5_ch}
+        - {foreground: {style: "𝑻"}, action: t1d_back}
+        - {foreground: {style: "朙"}, action: luna_pinyin_ch}
+        #- {foreground: {style: "🩸"}, action: micro_duration}
+        #- {foreground: {style: "🖼"}, action: micro_photo}
+        #- {foreground: {style: "ic@skip_next"}, action: IME_next}
+        #- {foreground: {style: "ic@skip_previous"}, action: IME_last}
+        - {action: IME_switch}
+        - {action: Menu}
+        - {foreground: {style: "。,", option_styles: ["。", "."]}, action: Punct_switch}
+        - {foreground: {option_styles: ["Ch", "En"], font_size: 14, padding: 1}, action: Mode_switch}
+        - {action: Theme_settings}

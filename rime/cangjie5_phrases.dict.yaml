@@ -1,0 +1,49 @@
+# cangjie5_phrases.dict.yaml
+#拿ㄋㄚ	na
+#呢ㄋㄜ	ne
+#鬧ㄋㄠ	nao
+#耨ㄋㄡ	nou
+#男ㄋㄢ	nan
+#嫩ㄋㄣ	nen		林ㄌㄧㄣ	lin
+#能ㄋㄥ	neng	另ㄌㄧㄥ	ling
+#嚢ㄋㄤ	nang
+
+#家ㄐㄧㄚ	jia
+#覺ㄐㄩㄝ	jue
+#奇ㄑㄧ	qi
+#戲ㄒㄧ	xi
+
+#這ㄓㄜ	zhe
+#撤ㄔㄜ	che
+#設ㄕㄜ	she
+#熱ㄖㄜ	re
+
+#最ㄗㄨㄟ	zui***
+#痤ㄘㄨㄛ	cuo
+#翠ㄘㄨㄟ	cui
+#所ㄙㄨㄛ	suo
+#ㄚa
+#ㄜe
+#ㄞai
+#ㄠao
+#ㄡou
+#ㄢan
+#ㄣen
+#ㄤang
+#ㄥeng
+#ㄦer
+---
+name: cangjie5_phrases
+version: "2023.8.23"
+sort: original #by_weight
+use_preset_vocabulary: true
+...
+小時
+糖化血色素
+三酸甘油脂
+林詠盛
+第二型
+第一型
+告五人
+也因此
+數週

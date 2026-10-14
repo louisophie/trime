@@ -1,0 +1,10 @@
+{
+  "items": [
+    {"id": 1, "text": "Hello, world!", "time": 1700000000000, "pinned": true},
+    {"id": 2, "text": "My email: user@example.com", "time": 1700000001000, "pinned": true},
+    {"id": 3, "text": "Address: 123 Main St, City", "time": 1700000002000, "pinned": false},
+    {"id": 4, "text": "Quick reply: Thanks for your message!", "time": 1700000003000, "pinned": false},
+    {"id": 5, "text": "Meeting at 3pm tomorrow", "time": 1700000004000, "pinned": true}
+  ],
+  "nextId": 6
+}

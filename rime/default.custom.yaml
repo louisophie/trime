@@ -1,0 +1,17 @@
+customization:
+  distribution_code_name: trime
+  distribution_version: "v3.3.12-48-gf3ca316f"
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Sat Sep 26 22:57:45 2026"
+  rime_version: 1.17.0
+patch:
+  "key_binder/bindings":
+    - {accept: Tab, send: Tab, when: always}
+    - {accept: "Shift+Tab", send: "Shift+Tab", when: always}
+  schema_list:
+    - {schema: luna_pinyin}
+    - {schema: cangjie5}
+    - {schema: t1d}
+    - {schema: t1d_eng}
+    #- {schema: easy_en}
+    - {schema: spellless}

@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-09-10T21:46:29+00:00",
+  "generator": "scripts/build_dictionary.py",
+  "entries": 84342,
+  "parameters": {
+    "limit": 0,
+    "vocab_rank": 20000,
+    "supplemental_default_frequency": 1225495,
+    "contraction_rank": 500,
+    "contraction_floor_frequency": 147969893
+  },
+  "sources": [
+    {
+      "path": "data/sources/frequency_dictionary_en_82_765.txt",
+      "sha256": "c604e1121e398ae7c7fbf777f11e0a0f2fa66eda932cb9fba1321466cf3acd7b",
+      "origin": "https://github.com/wolfgarbe/SymSpell (SymSpell/frequency_dictionary_en_82_765.txt)",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/sources/varcon.txt",
+      "sha256": "340858b990255ec409adcf7faaf2b992aa2a76a16f30b4b9e2663863191dba33",
+      "origin": "http://wordlist.aspell.net/ (VarCon 2020.12.07)",
+      "licence": "permissive, see data/sources/varcon-COPYRIGHT"
+    },
+    {
+      "path": "data/vocab/abbreviations.txt",
+      "sha256": "34c14d958b7aff6181da001491b6bebc65e7f4f1bbb0bf94005109ac5c10eac3",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/brands.txt",
+      "sha256": "8947079f3ba43a338159f577774e71fc5e9dfeca0c5fb1732bb9e44fccb33e3f",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/contractions.txt",
+      "sha256": "101fa57f95a8e891780e4fa9040e0e0d6d24bdf63a85d1e1e5f0f832728d2356",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/given_names.txt",
+      "sha256": "8e89948057c34dd6139dacf5fef6dda0d985ead622fc9c91d3820d4a9741e881",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/interjections.txt",
+      "sha256": "00de11691dd0f604f5fb303d714cb46c6ad0ad73a8de58a0fad4aeb67e2202e6",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/internet.txt",
+      "sha256": "371bc8d160baaae8f4c0a11b97523850861d8be6e6c89199528f5e4ced7429a6",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/math_sample.txt",
+      "sha256": "4984ea8926910b41f4d70160b926849358e902d6097152ce454f74e322779d3c",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/phrases.txt",
+      "sha256": "fedfad1cec44275dd68dec661ec3a319b38f4ff5475f4fe94ae5c38a6145aa60",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/proper_nouns.txt",
+      "sha256": "f2e0195c9f9818fd5090db0f7c9ad4a388580ad0e530bd1271d7cd634c31a1a8",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/shorthand.txt",
+      "sha256": "58f5c1c7d5789f94c714798b2cf70fb5ce59b2fa63064e3fc56f3d82accfc654",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/vocab/technology.txt",
+      "sha256": "68dee50cbeb4e4a86f44fe06bfe1766047b86b15dfdddc5e9613eb6ddd26cd69",
+      "origin": "this repository",
+      "licence": "MIT"
+    },
+    {
+      "path": "data/forms.txt",
+      "sha256": "0275b36e8e89ae4850dfc860dab2730c48ef1662ec06d6b399c5d487e31565f7",
+      "origin": "this repository",
+      "licence": "MIT"
+    }
+  ],
+  "indexes": {
+    "alpha": {
+      "entries": 84342,
+      "encoding": "u24le"
+    },
+    "skel": {
+      "entries": 84342,
+      "encoding": "u24le",
+      "distinct_skeletons": 63012
+    }
+  }
+}

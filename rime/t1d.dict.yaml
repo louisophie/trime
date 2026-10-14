@@ -1,0 +1,127 @@
+# T1D expanded dictionary - full coverage for Fcitx5 Android Rime
+# encoding: utf-8
+---
+name: t1d
+version: "0.2"
+sort: by_weight
+use_preset_vocabulary: false
+...
+# Site codes
+lb	<B
+rb	>B
+la	<A
+ra	>A
+lt	<T
+rt	>T
+ln	<内
+rn	>内
+lnei	<内
+rnei	>内
+ac	(AC)
+mg	mg/dL
+xuetang	mg/dL
+yan	鹽
+yan	盐
+nei	内
+nei	內
+# Fractions
+ban	½
+ban	½
+12	½
+14	¼
+34	¾
+# Plus/minus superscripts
+jia	⁺
+plus	⁺
+jian	⁻
+minus	⁻
+# Superscript numbers s0-s9
+s0	⁰
+s1	¹
+s2	²
+s3	³
+s4	⁴
+s5	⁵
+s6	⁶
+s7	⁷
+s8	⁸
+s9	⁹
+# Subscript numbers x0-x9
+x0	₀
+x1	₁
+x2	₂
+x3	₃
+x4	₄
+x5	₅
+x6	₆
+x7	₇
+x8	₈
+x9	₉
+# Small caps / phonetic superscripts
+a1	ª
+b1	ᵇ
+e1	ᵉ
+f1	ᶠ
+i1	ⁱ
+j1	ʲ
+k1	ₖ
+l1	ₗ
+m1	ᵐ
+n1	ⁿ
+o1	º
+o2	ₒ
+p1	ᵖ
+r1	ʳ
+s1	ˢ
+t1	ᵗ
+u1	ᵤ
+v1	ᵥ
+w1	ʷ
+x1	ˣ
+y1	ʏ
+h1	ₕ
+g1	ɢ
+t2	ᴛ
+# Direct symbol codes (type the symbol itself to get it, plus alias above)
+<B	<B
+>B	>B
+<A	<A
+>A	>A
+<T	<T
+>T	>T
+<内	<内
+>内	>内
+塩	鹽
+½	½
+¼	¼
+¾	¾
+⁺	⁺
+⁻	⁻
+⁰	⁰
+¹	¹
+²	²
+³	³
+⁴	⁴
+⁵	⁵
+⁶	⁶
+⁷	⁷
+⁸	⁸
+⁹	⁹
+₀	₀
+₁	₁
+₂	₂
+₃	₃
+₄	₄
+₅	₅
+₆	₆
+₇	₇
+₈	₈
+₉	₉
+# Insulin shorthand quick codes
+2r	2R
+1n	1N
+3r	3R
+4r	4R
+5r	5R
+6r	6R
+7r	7R

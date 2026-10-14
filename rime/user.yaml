@@ -1,0 +1,18 @@
+var:
+  last_build_time: 1790434692
+  option:
+    ascii_punct: false
+    extended_charset: false
+    full_shape: false
+    simplification: false
+  previously_selected_schema: easy_en
+  schema_access_time:
+    bopomofo: 1738925297
+    bopomofo_tw: 1790434625
+    cangjie5: 1790434619
+    cangjie5_express: 1788492509
+    cangjie6: 1691645223
+    easy_en: 1790434629
+    luna_pinyin: 1790434601
+    t1d: 1790434620
+    terra_pinyin: 1724487482
