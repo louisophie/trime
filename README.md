@@ -33,6 +33,10 @@ Luckily, here is opensourced Trime in which I am quite familiar with its core Ri
 
 By my original MOK's keyboard arrangment, this tongwen-T1D keyboard has more features due to its usage on tmux, micro and cli-agents (Opencode and ClaudeCode) in Termux. There are still many issues, and I will do as much as I can to improve this keyboard setting with my bloodsugar logging.
 
+## Keyboard Notation Decipherment
+
+Please visit [https://github.com/louisophie/BG_record/](https://github.com/louisophie/BG_record/) for clarification.
+
 ## Functions added
 - **Personal-clipboard** (mimics MOK): long-pressing the icon would pop up entries in "./rime/personal-clipboard.md", then sliding upon it for pasting.
 
